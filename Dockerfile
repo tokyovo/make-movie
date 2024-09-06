@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ./app /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install fastapi uvicorn moviepy
+RUN pip install fastapi uvicorn moviepy cloudinary
 
 # Run FastAPI using Uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
