@@ -1,0 +1,14 @@
+services:
+  fastapi_app:
+    build: .
+    volumes:
+      - ./app:/app
+    restart: always   # Ensures the FastAPI app restarts on failure
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx  # Use the Dockerfile for Nginx
+    ports:
+      - "8090:80"  # Expose Nginx on port 8090 and map to 80 inside the container
+    restart: always  # Ensures Nginx restarts on failure
