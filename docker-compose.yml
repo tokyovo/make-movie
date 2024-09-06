@@ -3,6 +3,8 @@ services:
     build: .
     volumes:
       - ./app:/app
+    env_file:
+      - ./app/.env  # Load environment variables from the .env file under the app directory
     restart: always   # Ensures the FastAPI app restarts on failure
 
   nginx:
